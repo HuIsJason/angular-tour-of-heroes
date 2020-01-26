@@ -1,0 +1,16 @@
+<div id="search-component">
+    <h4><label for="search-box">Giant Search</label></h4>
+  
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  
+    <ul class="search-result">
+        <!-- giants$ indicates it's not an ARRAY, but an OBSERVABLE -->
+        <!-- *ngFor can't iterate through an Observable -->
+        <!-- so the pipe | to async automatically subs to the Observable -->
+      <li *ngFor="let giant of giants$ | async" >
+        <a routerLink="/detail/{{giant.id}}">
+          {{giant.name}}
+        </a>
+      </li>
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+<h3>{{ title | uppercase }}</h3>
+<div class=""grid grid-pad>
+    <a *ngFor="let giant of giants"
+       class="col-1-4"
+       routerLink="/detail/{{giant.id}}">
+        <div class="module giant">
+            <h4>{{giant.name}}</h4>
+        </div>
+    </a>
+</div>
+
+<!-- here is the search component -->
+<app-giant-search></app-giant-search>
