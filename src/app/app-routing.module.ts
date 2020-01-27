@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // id is used in the URL, to specify which id's details are being viewed
   // :is a placeholder for a specifc giant id
-  { path: 'detail/:id', component: GiantDetailComponent },
+  { path: 'detail/:id', component: GiantDetailComponent }
 ];
 
 @NgModule({
