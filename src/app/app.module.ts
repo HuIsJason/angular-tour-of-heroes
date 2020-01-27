@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; // the web api used to simulate a live server HTTP response
 import { InMemoryDataService }  from './in-memory-data.service';
 import { GiantSearchComponent } from './giant-search/giant-search.component';
+import { HeroNamePipe } from './hero-name.pipe';
 
 @NgModule({
   // this module's components
@@ -21,7 +22,8 @@ import { GiantSearchComponent } from './giant-search/giant-search.component';
     GiantDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    GiantSearchComponent
+    GiantSearchComponent,
+    HeroNamePipe
   ],
   // the other modules this module has uses for
   imports: [

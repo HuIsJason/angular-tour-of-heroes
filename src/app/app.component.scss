@@ -17,6 +17,11 @@ nav a {
     display: inline-block;
     background-color: #eee;
     border-radius: 4px;
+    margin: 5px;
+}
+
+.leftMost {
+    margin-left: 0px;
 }
 
 nav a:visited, a:link {

@@ -4,11 +4,13 @@ import { Location } from '@angular/common';
 
 import { Giant } from '../Giant';
 import { GiantService }  from '../giant.service';
+import { HeroNamePipe } from '../hero-name.pipe';
 
 @Component({
   selector: 'app-giant-detail',
   templateUrl: './giant-detail.component.html',
-  styleUrls: ['./giant-detail.component.scss']
+  styleUrls: ['./giant-detail.component.scss'],
+  providers: [HeroNamePipe]
 })
 export class GiantDetailComponent implements OnInit {
 
@@ -19,8 +21,9 @@ export class GiantDetailComponent implements OnInit {
     // useful info like id is extracted from the URL
 
     private giantService: GiantService, // gets giant data from remote server
-    private location: Location // an Angular service for interacting w/ the browser
+    private location: Location, // an Angular service for interacting w/ the browser
     // for navigating back to the view that navigated here in the first place
+    private heroNamePipe: HeroNamePipe
   ) { }
 
   ngOnInit() {
@@ -41,5 +44,12 @@ export class GiantDetailComponent implements OnInit {
 
   save(): void {
     this.giantService.updateGiant(this.giant).subscribe(() => this.goBack());
+  }
+
+  formatByMale(name: string, isMale: boolean): void {
+    if (!(name.startsWith('Mr. ') || name.startsWith('Ms. '))) {
+      this.giant.name = this.heroNamePipe.transform(this.giant.name, isMale);
+    }
+    this.save();
   }
 }

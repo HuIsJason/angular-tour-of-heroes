@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RouterTestingModule } from '@angular/router/testing';
 import { DashboardComponent } from './dashboard.component';
+import { GiantSearchComponent } from '../giant-search/giant-search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -10,9 +12,12 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule, HttpClientModule
       ],
-      declarations: [ DashboardComponent ]
+      declarations: [
+        DashboardComponent,
+        GiantSearchComponent
+      ]
     })
     .compileComponents(); // compiles template and css
   }));

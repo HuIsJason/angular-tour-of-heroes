@@ -53,7 +53,7 @@ export class GiantService {
   getGiants (): Observable<Giant[]> {
     return this.http.get<Giant[]>(this.giantsUrl)
       .pipe( // "piping" the Observable (in the pipe, tap() happens on success, catchError() occurs on errors)
-        tap(_ => this.log('fetched giants (from tap')),
+        tap(_ => this.log('fetched giants')),
         catchError(this.handleError<Giant[]>('getGiants', [])) // handleError() is passed to catchError, where it
                                                                // reports the error, returns something valid
                                                                // to keep the application running

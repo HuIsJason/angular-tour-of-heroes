@@ -1,12 +1,14 @@
 <!-- *ngIf means this div element is loaded IF selectedGiant has a value -->
 <div *ngIf="giant">
-    <h2>{{giant.name | uppercase}}'s Details</h2>
+    <h2>{{ giant.name | uppercase }}'s Details</h2>
     <div><span>id: </span>{{giant.id}} </div>
     <div>
         <label>name:
             <input [(ngModel)]="giant.name" placeholder="name">
         </label>
     </div>
-    <button (click)="goBack()">go back</button>
+    <button class="leftMost" (click)="goBack()">go back</button>
     <button (click)="save()">save</button>
+    <button (click)="formatByMale(giant.name, true)">Format by Male</button>
+    <button (click)="formatByMale(giant.name, false)">Format by Female</button>
 </div>
